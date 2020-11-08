@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production && cp -r images dist && cp index.html dist && Globular deploy -u=sa -p=adminadmin -name=console -a=localhost -path=dist"
+    "build": "webpack --mode production && cp -r images dist && cp index.html dist && cp test.html dist && Globular deploy -u=sa -p=adminadmin -name=console -a=hub.globular.io -path=dist"
   },
   "keywords": [
     "globular",
@@ -16,14 +16,16 @@
   "author": "Dave Courtois",
   "license": "ISC",
   "dependencies": {
+    "@types/google.visualization": "0.0.56",
+    "@types/materialize-css": "^1.0.8",
     "globular-web-client": "^1.1.71",
-    "materialize-css": "^1.0.0",
-    "@types/materialize-css": "^1.0.8"
+    "materialize-css": "^1.0.0"
   },
   "devDependencies": {
     "@types/jwt-decode": "^2.2.1",
     "css-loader": "^3.5.3",
     "file-loader": "^6.0.0",
+    "google-charts": "^2.0.0",
     "jwt-decode": "^2.2.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.0",
