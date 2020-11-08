@@ -11,10 +11,9 @@ import {
   clearAllLog,
   deleteLogEntry,
 } from "../../../globular-mvc/node_modules/globular-web-client/api";
-import { LogInfo, LogType } from "globular-web-client/ressource/ressource_pb";
+import { LogInfo, LogType } from "../../../globular-mvc/node_modules/globular-web-client/ressource/ressource_pb";
 import { fireResize } from "./utility.js";
 import "@davecourtois/elementui/components/table/table.js";
-import { Globular } from "globular-web-client";
 import { Model } from "../../../globular-mvc/Model";
 
 /**

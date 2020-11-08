@@ -49,14 +49,14 @@ export class ConsoleApplicationView extends ApplicationView {
                 this.dashboard = new Dashboard(this.getWorkspace());
                 this.dashboard.init()
 
-            }, false)
+            }, true)
 
 
         Model.eventHub.subscribe("logout_event", 
         (uuid:string)=>{}, 
         ()=>{
             this.getWorkspace().innerHTML = this.welcomeContent
-        }, false)
+        }, true)
     }
 
 
@@ -66,6 +66,6 @@ export class ConsoleApplicationView extends ApplicationView {
 
 export class ConsoleApplication extends Application{
     constructor(view: ConsoleApplicationView){
-        super("tests", "Globular Unit Tests", view);
+        super("console", "Globular Console", view);
     }
 }

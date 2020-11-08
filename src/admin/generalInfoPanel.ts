@@ -1,4 +1,4 @@
-import { IConfig } from "globular-web-client";
+
 import {
   ConfigurationPanel,
   ConfigurationTextLine,
@@ -9,6 +9,7 @@ import {
   saveConfig,
   getErrorMessage,
 } from "../../../globular-mvc/node_modules/globular-web-client/api";
+import {IConfig} from "../../../globular-mvc/node_modules/globular-web-client"
 import { LdapSyncServicePanel } from "./services/ldapSyncServicePanel";
 import { Model } from "../../../globular-mvc/Model";
 

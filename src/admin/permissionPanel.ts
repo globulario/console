@@ -13,7 +13,7 @@ import {
   deleteRessourceOwners,
 } from "../../../globular-mvc/node_modules/globular-web-client/api";
 import { randomUUID } from "./utility";
-import { RessourcePermission } from "globular-web-client/ressource/ressource_pb";
+import { RessourcePermission } from "../../../globular-mvc/node_modules/globular-web-client/ressource/ressource_pb";
 import { Model } from "../../../globular-mvc/Model";
 
 /**

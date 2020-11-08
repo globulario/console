@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production && cp -r images dist && cp index.html dist && cp test.html dist && Globular deploy -u=sa -p=adminadmin -name=console -a=hub.globular.io -path=dist"
+    "build": "webpack --mode production && cp -r images dist && cp index.html dist && cp test.html dist && Globular deploy -u=sa -p=adminadmin -name=console -a=localhost -path=dist"
   },
   "keywords": [
     "globular",
@@ -18,7 +18,6 @@
   "dependencies": {
     "@types/google.visualization": "0.0.56",
     "@types/materialize-css": "^1.0.8",
-    "globular-web-client": "^1.1.71",
     "materialize-css": "^1.0.0"
   },
   "devDependencies": {

@@ -4,7 +4,6 @@ import * as M from "materialize-css";
 import "materialize-css/sass/materialize.scss";
 import { randomUUID } from "./utility";
 import { Model } from "../../../globular-mvc/Model";
-import { Globular } from "globular-web-client";
 
 /**
  * This class is use to manage file on the server.

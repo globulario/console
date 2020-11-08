@@ -10,7 +10,7 @@ import {
   removeRessource,
 } from "../../../globular-mvc/node_modules/globular-web-client/api";
 import { randomUUID, rgbToHsl } from "./utility";
-import { Ressource } from "globular-web-client/ressource/ressource_pb";
+import { Ressource } from "../../../globular-mvc/node_modules/globular-web-client/ressource/ressource_pb";
 import { Model } from "../../../globular-mvc/Model";
 
 let emptyPath = "...";
