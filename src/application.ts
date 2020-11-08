@@ -46,7 +46,7 @@ export class ConsoleApplicationView extends ApplicationView {
             ()=>{
                 this.getWorkspace().innerHTML = ""
 
-                this.dashboard = new Dashboard();
+                this.dashboard = new Dashboard(this.getWorkspace());
                 this.dashboard.init()
 
             }, false)
