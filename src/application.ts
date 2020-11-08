@@ -25,9 +25,12 @@ import { ApplicationManager } from "./admin/applicationPanel";
 import { LogManager } from "./admin/logPanel";
 import { PeerManager } from "./admin/peersPanel";
 import { ServiceManager } from "./admin/servicesPanel";
+import { Dashboard } from "./dashboard/dashboard";
 
 export class ConsoleApplicationView extends ApplicationView {
     private welcomeContent: string
+    private dashboard: Dashboard
+
     constructor(){
         super();
         this.welcomeContent = this.getWorkspace().innerHTML
@@ -42,6 +45,10 @@ export class ConsoleApplicationView extends ApplicationView {
             (uuid:string)=>{}, 
             ()=>{
                 this.getWorkspace().innerHTML = ""
+
+                this.dashboard = new Dashboard();
+                this.dashboard.init()
+
             }, false)
 
 
