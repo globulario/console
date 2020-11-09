@@ -31,9 +31,7 @@ export class Dashboard {
   }
 
   init() {
-
- 
-
+    
     let drawChart = () =>{ 
 
       var data = google.visualization.arrayToDataTable([

@@ -2,19 +2,20 @@ import "materialize-css/sass/materialize.scss";
 import { Application } from "../../globular-mvc/Application";
 import { ApplicationView } from "../../globular-mvc/ApplicationView";
 import { Model } from "../../globular-mvc/Model";
+import { Account } from "../../globular-mvc/Account";
 
 import { SearchServicesPanel } from "./admin/searchServicesPanel";
 import { GeneralInfoPanel } from "./admin/generalInfoPanel";
 import { ServicePanel } from "./admin/servicePanel";
 import { RolePanel } from "./admin/rolePanel";
 import { randomUUID, fireResize } from "./admin/utility";
-import { createElement } from './admin/element.js'
+import { createElement } from "./admin/element.js";
 import { SqlServicePanel } from "./admin/services/sqlServicePanel";
 import { SmtpServicePanel } from "./admin/services/smtpServicePanel";
 import { LdapServicePanel } from "./admin/services/ldapServicePanel";
 import { PersistenceServicePanel } from "./admin/services/persistenceServicePanel";
-import { FileServicePanel } from './admin/services/fileServicePanel';
-import { PlcServerConfigPanel } from './admin/services/plcServerConfigPanel';
+import { FileServicePanel } from "./admin/services/fileServicePanel";
+import { PlcServerConfigPanel } from "./admin/services/plcServerConfigPanel";
 import { PlcExporterConfigPanel } from "./admin/services/plcExporterConfigPanel";
 import { PlcLinkConfigPanel } from "./admin/services/plcLinkConfigPanel";
 import { DnsServicePanel } from "./admin/services/dnsServicePanel";
@@ -28,44 +29,34 @@ import { ServiceManager } from "./admin/servicesPanel";
 import { Dashboard } from "./dashboard/dashboard";
 
 export class ConsoleApplicationView extends ApplicationView {
-    private welcomeContent: string
-    private dashboard: Dashboard
+  private welcomeContent: string;
+  private dashboard: Dashboard;
 
-    constructor(){
-        super();
-        this.welcomeContent = this.getWorkspace().innerHTML
-    }
+  constructor() {
+    super();
+    this.welcomeContent = this.getWorkspace().innerHTML;
+  }
 
-    // init the view
-    init(){
-        super.init()
-        
-        // Keep the actual content
-        Model.eventHub.subscribe("login_event", 
-            (uuid:string)=>{}, 
-            ()=>{
-                this.getWorkspace().innerHTML = ""
+  // init the view
+  /*init() {
+    super.init();
+  }*/
 
-                this.dashboard = new Dashboard(this.getWorkspace());
-                this.dashboard.init()
+  onLogin(account: Account) {
+    super.onLogin(account);
+    this.getWorkspace().innerHTML = "";
+    this.dashboard = new Dashboard(this.getWorkspace());
+    this.dashboard.init();
+  }
 
-            }, true)
-
-
-        Model.eventHub.subscribe("logout_event", 
-        (uuid:string)=>{}, 
-        ()=>{
-            this.getWorkspace().innerHTML = this.welcomeContent
-        }, true)
-    }
-
-
-
+  onLogout() {
+    super.onLogout();
+    this.getWorkspace().innerHTML = this.welcomeContent;
+  }
 }
 
-
-export class ConsoleApplication extends Application{
-    constructor(view: ConsoleApplicationView){
-        super("console", "Globular Console", view);
-    }
+export class ConsoleApplication extends Application {
+  constructor(view: ConsoleApplicationView) {
+    super("console", "Globular Console", view);
+  }
 }
