@@ -1,0 +1,76 @@
+
+Informations
+
+    But: Donner une visibilité sur l'état des service.
+
+    Dashboard
+    -> Les trois cadran représenteront la charge du serveur (LOAD1, 5, 15) void https://en.wikipedia.org/wiki/Load_(computing)
+    -> La mémoire utilisé des services
+    -> Le CPU utilisé des services (incluant Globular lui-même)
+       (pouvoir sélection ou déselctionner un ou des services)
+       (pouvoir changer l'intervale de temps (zoom in zoom out)
+    
+    System Log
+    Erreur et evenements
+    -> Rapport des errors et evenement du serveur.
+        -> separer par type d'erreur
+        -> separer par service
+
+    Service Console (avoir un mode verbose pour pouvoir tracer l'exécution des fonctions)
+    -> Pouvoir tracer l'execution des fonctions sur le serveur.
+       -> Toute les erreurs devront être numéroter structurer en json pour pouvoir être afficher de manière uniforme.
+
+    Historique ??
+    -> Avoir un compte rendu de la charge pour un periode de temps donner.
+    -> Compte rendu des erreur rencontrer par services / application
+    -> Statisque du nombre d'utilisation d'une applicaiton.
+    
+Gestion des Applications
+    -> Gestion des permissions par application
+    -> Pouvoir rechercher des applications et les installer sur le seveur
+    -> Pourvoir packager une application avec ses data et ses permissions pour ensuite la partager, ou l'installer sur un autre serveur)
+        -- installer les services nécessaire a rouler l'application.
+    -> Pouvoir supprimer une installation. (revoir l'acces au fichier de l'application ds le webroot)
+       ** rendre distinct les repertoire qui contienne des application.
+    -> Systeme de mise a jour d'une applcation (automatique/ ou pas)
+    -> Se servir des notifications
+
+Gestion des Services
+    -> Rechercher des services
+    -> Installer / supprimer un services
+    -> Mettre a jour un services.
+    -> Se servir des notifications
+    -> Présentation du service (logo, publisher info (wesite etc...) )
+    -> Configuation du service (notre fameux html)
+    -> Documentation du service 
+    -> Exemple
+        -> quick start.
+
+Permissions
+    ** Reprendre le code existant en restructurant l'interface.
+
+Gestion des User
+    
+Gestion des Role
+
+Gestion des Ressources
+    ** Chaque action contient l'information relative aux permission associer a une ressources. Il faut
+    bien clarifier l'utilisation de cette fontionalité.
+    -- Les ressources permettent de sécurisé les accès a ... un fichier, une répertoire, une service (publier, supprimer) a une application... 
+    Gestionnaire de ressources...
+
+Gestion des Fichiers
+    Finalisé le nouveaux getionnaire de fichiers.
+
+Backup 
+    -> Des Applitcation
+       -> Code (dans webroot) pouvoir faire un revert a une date donné.
+    -> Local Ressource.
+        -> Des Roles
+        -> Des Permissions
+        -> voir mongodump / mongorestore
+    
+
+
+
+
