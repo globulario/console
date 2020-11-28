@@ -85,27 +85,16 @@ export class Dashboard {
     }
 
 
-    function drawChart() {
+    function drawChart(series: any, values: any) {
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'X');
-      data.addColumn('number', 'Dogs');
 
+      // append the series.
+      series.forEach((serie:any) => {
+        data.addColumn('number', serie);
+      });
 
-
-      data.addRows([
-        [0, 0],   [1, 10],  [2, 23],  [3, 17],  [4, 18],  [5, 9],
-        [6, 11],  [7, 27],  [8, 33],  [9, 40],  [10, 32], [11, 35],
-        [12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
-        [18, 52], [19, 54], [20, 42], [21, 55], [22, 56], [23, 57],
-        [24, 60], [25, 50], [26, 52], [27, 51], [28, 49], [29, 53],
-        [30, 55], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
-        [36, 62], [37, 58], [38, 55], [39, 61], [40, 64], [41, 65],
-        [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
-        [48, 72], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
-        [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
-        [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
-        [66, 70], [67, 72], [68, 75], [69, 80]
-      ]);
+      data.addRows(values);
 
       var options = {
         hAxis: {
@@ -121,25 +110,71 @@ export class Dashboard {
       chart.draw(data, options);
     }
 
+    let getDataRange = (query: string, startTime: number, endTime: number, inc: number, callback:(series:any, values: any)=>void) => {
+      queryTsRange(
+        Model.globular,
+        "dashboard_connection",
+        query,
+        startTime / 1000,
+        endTime / 1000,
+        inc,
+        (values: any) => {
+          let values_ = []
+          let series_ = []
+  
+          for(var i=0; i < values.length; i++){
+            series_.push(values[i].metric.name)
+            if(i==0){
+              values_ = values[i].values;
+              for(var j=0; j < values_.length; j++){
+                values_[j][1] = parseInt(values_[j][1])
+              }
+            }else{
+              for(var j=0; j < values[i].values.length; j++){
+                values_[j].push( parseInt(values[i].values[j][1]))
+              }
+            }
+          }
+
+          callback(series_, values_)
+        },
+        (err: any) => {
+          console.log(err)
+        }
+      );
+    }
+
+
+    // Draw the memory chart.
+    let drawMemoryChart = (offset:number, inc: number)=>{
+      let endTime_ = new Date().getTime();
+      let startTime_ = endTime_ - (offset);
+      getDataRange("globular_services_memory_usage_counter", startTime_, endTime_, inc, (series: any, values: any)=>{
+        drawChart(series, values)
+      })
+    }
 
     google.charts.load('current', { 'packages': ['gauge'] });
     google.charts.setOnLoadCallback(() => {
       drawGauge()
       google.charts.load('current', { 'packages': ['corechart', 'line'] });
-      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(()=>{
+        drawMemoryChart(60000*60, 60*1000)
+        
+      });
     });
 
 
 
     // Set the resize event.
-    window.addEventListener('resize', ()=>{
-      drawChart()
+    window.addEventListener('resize', () => {
+      drawMemoryChart(60000*60, 60*1000)
     });
 
 
 
 
-    
+
     /* TODO create the connection once when the application is installed.
     let rqst = new CreateConnectionRqst();
     let info = new Connection();
@@ -159,27 +194,11 @@ export class Dashboard {
       .catch((err: any) => {
         console.log(err);
       });*/
-   //  queryTsRange(Model.globular, "")
+    //  queryTsRange(Model.globular, "")
 
     // Get a range from start to end time
-  
-    let endTime_ = new Date().getTime();
-        let startTime_ = endTime_ - (60);
-        
-        queryTsRange(
-          Model.globular,
-          "dashboard_connection",
-          "globular_services_memory_usage_counter",
-          startTime_/1000,
-          endTime_/1000,
-          1,
-          (values: any) => {
-              console.log(values)
-          },
-          (err: any) => {
-              console.log(err)
-          }
-        );
+
+   
 
 
 
@@ -195,7 +214,9 @@ export class Dashboard {
         console.log(values)
 
 
-   
+
+
+
 
 
       },
