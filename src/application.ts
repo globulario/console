@@ -3,12 +3,10 @@ import { Application } from "../../globular-mvc/Application";
 import { ApplicationView } from "../../globular-mvc/ApplicationView";
 import { Model } from "../../globular-mvc/Model";
 import { Account } from "../../globular-mvc/Account";
-import { Dashboard } from "./dashboard/dashboard";
 import "../../globular-mvc/node_modules/@polymer/iron-selector/iron-selector"
 
 export class ConsoleApplicationView extends ApplicationView {
   private welcomeContent: string;
-  private dashboard: Dashboard;
   private navigationDiv: any;
 
   constructor() {
@@ -16,22 +14,12 @@ export class ConsoleApplicationView extends ApplicationView {
     this.welcomeContent = this.getWorkspace().innerHTML;
 
     // Here I will create the navgation menu.
-
-
-
+    
   }
-
-  // init the view
-  /*init() {
-    super.init();
-  }*/
 
   onLogin(account: Account) {
     super.onLogin(account);
     this.getWorkspace().innerHTML = "";
-    this.dashboard = new Dashboard(this.getWorkspace());
-    this.dashboard.init();
-
     let navigationHtml = `
     <style>
 
@@ -74,16 +62,7 @@ export class ConsoleApplicationView extends ApplicationView {
     let range = document.createRange();
     this.getSideMenu().appendChild(range.createContextualFragment(navigationHtml))
     this.navigationDiv = document.getElementById("navigation-div")
-/*
-    console.log(this.navigationDiv.childNodes)
-    this.navigationDiv.childNodes[1].onclick = ()=>{
-      console.log("hello dashboard")
-    }
 
-    this.navigationDiv.childNodes[3].onclick = ()=>{
-      console.log("hello documentation")
-    }
-*/
     // fire the window resize event to display the side menu.
     window.dispatchEvent(new Event('resize'));
   }
