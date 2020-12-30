@@ -1,17 +1,18 @@
 {
   "name": "console",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The globular admin console. It also contain unit test and documentation.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production && cp -r css dist && cp -r images dist && cp index.html dist && cp test.html dist && Globular deploy -o=globulario -u=sa -p=adminadmin -name=console -a=globular.live -path=dist"
+    "build": "webpack --mode production && cp -r css dist && cp -r images dist && cp index.html dist && cp test.html dist && Globular deploy -o=globulario -u=dave -p=1234 -name=console -a=globular.live -path=dist"
   },
   "keywords": [
     "globular",
     "documentation",
     "console",
-    "admin"
+    "admin",
+    "template"
   ],
   "author": "Dave Courtois",
   "license": "ISC",

@@ -19,17 +19,13 @@ export class ConsoleApplicationView extends ApplicationView {
 
     // Here I will create the navgation menu.
     let rqst = new ServerReflectionRequest;
-
-    
     rqst.setHost("localhost:10001")
     let client = new ServerReflectionPromiseClient("localhost:10001")
-    
   }
 
   onLogin(account: Account) {
     super.onLogin(account);
     this.getWorkspace().innerHTML = "";
-    console.log("-----> on login!");
     let navigationHtml = `
     <style>
 
@@ -67,7 +63,6 @@ export class ConsoleApplicationView extends ApplicationView {
       </settings-menu>
     </div>
     `
-
     // Clear previous content.
     if(document.getElementById("left") != undefined){
       document.getElementById("left").innerHTML = ""
