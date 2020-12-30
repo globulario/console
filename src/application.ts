@@ -66,7 +66,6 @@ export class ConsoleApplicationView extends ApplicationView {
         </iron-selctor-->
       </settings-menu>
     </div>
-
     `
 
     // Clear previous content.
