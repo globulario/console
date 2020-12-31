@@ -1,14 +1,5 @@
 
 Informations
-
-    But: Donner une visibilité sur l'état des service.
-
-    Dashboard
-    -> Les trois cadran représenteront la charge du serveur (LOAD1, 5, 15) void https://en.wikipedia.org/wiki/Load_(computing)
-    -> La mémoire utilisé des services
-    -> Le CPU utilisé des services (incluant Globular lui-même)
-       (pouvoir sélection ou déselctionner un ou des services)
-       (pouvoir changer l'intervale de temps (zoom in zoom out)
     
     System Log
     Erreur et evenements
@@ -61,16 +52,3 @@ Gestion des Ressources
 
 Gestion des Fichiers
     Finalisé le nouveaux getionnaire de fichiers.
-
-Backup 
-    -> Des Applitcation
-       -> Code (dans webroot) pouvoir faire un revert a une date donné.
-    -> Local Ressource.
-        -> Des Roles
-        -> Des Permissions
-        -> voir mongodump / mongorestore
-    
-
-
-
-
