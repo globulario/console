@@ -1,20 +1,11 @@
 
-Informations
-    
-    System Log
-    Erreur et evenements
-    -> Rapport des errors et evenement du serveur.
-        -> separer par type d'erreur
-        -> separer par service
-
-    Service Console (avoir un mode verbose pour pouvoir tracer l'exécution des fonctions)
-    -> Pouvoir tracer l'execution des fonctions sur le serveur.
-       -> Toute les erreurs devront être numéroter structurer en json pour pouvoir être afficher de manière uniforme.
-
-    Historique ??
-    -> Avoir un compte rendu de la charge pour un periode de temps donner.
-    -> Compte rendu des erreur rencontrer par services / application
-    -> Statisque du nombre d'utilisation d'une applicaiton.
+Gestion du serveur
+    -> Info general du serveur info read-only
+        -> Mac Address 
+        -> Version 
+        -> Address ip
+    -> Domain
+           
     
 Gestion des Applications
     -> Gestion des permissions par application
@@ -49,6 +40,3 @@ Gestion des Ressources
     bien clarifier l'utilisation de cette fontionalité.
     -- Les ressources permettent de sécurisé les accès a ... un fichier, une répertoire, une service (publier, supprimer) a une application... 
     Gestionnaire de ressources...
-
-Gestion des Fichiers
-    Finalisé le nouveaux getionnaire de fichiers.
