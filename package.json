@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production && cp -r css dist && cp -r images dist && cp index.html dist && cp test.html dist && Globular deploy  -u=sa -p=adminadmin -name=console -a=localhost -path=dist"
+    "build": "webpack --mode production && cp -r css dist && cp -r images dist && cp index.html dist && cp test.html dist && Globular deploy  -u=sa -p=adminadmin -name=console -a=omniscient.app -path=dist"
   },
   "keywords": [
     "globular",
@@ -21,13 +21,77 @@
     "@types/materialize-css": "^1.0.8",
     "materialize-css": "^1.0.0"
   },
-  "microservices": {
-    "echo": {
-      "repository": "globular.io",
-      "version": "lastest",
-      "actions":[""]
+  "groups": [
+    {
+      "id": "globular_users",
+      "name": "globular_users"
     }
-  },
+  ],
+  "roles": [
+    {
+      "id": "globular_user",
+      "name": "globular_user",
+      "actions": [
+        "/conversation.ConversationService/Connect",
+        "/conversation.ConversationService/Disconnect",
+        "/conversation.ConversationService/CreateConversation",
+        "/conversation.ConversationService/DeleteConversation",
+        "/conversation.ConversationService/FindConversations",
+        "/conversation.ConversationService/JoinConversation",
+        "/conversation.ConversationService/LeaveConversation",
+        "/conversation.ConversationService/GetConversations",
+        "/conversation.ConversationService/GetReceivedInvitations",
+        "/conversation.ConversationService/GetSentInvitations",
+        "/conversation.ConversationService/AcceptInvitation",
+        "/conversation.ConversationService/DeclineInvitation",
+        "/conversation.ConversationService/RevokeInvitation",
+        "/conversation.ConversationService/SendMessage",
+        "/conversation.ConversationService/FindMessages",
+        "/conversation.ConversationService/DeleteMessage",
+        "/conversation.ConversationService/SendInvitation",
+        "/conversation.ConversationService/KickoutFromConversation",
+        "/conversation.ConversationService/LikeMessage",
+        "/conversation.ConversationService/DislikeMessage",
+        "/conversation.ConversationService/SetMessageRead",
+        "/file.FileService/CreateDir",
+        "/file.FileService/DeleteDir",
+        "/file.FileService/FileUploadHandler",
+        "/file.FileService/DeleteFile",
+        "/file.FileService/ReadFile",
+        "/file.FileService/ReadDir",
+        "/file.FileService/Copy",
+        "/file.FileService/Move",
+        "/persistence.PersistenceService/Find",
+        "/persistence.PersistenceService/UpdateOne",
+        "/persistence.PersistenceService/FindOne",
+        "/persistence.PersistenceService/Delete",
+        "/persistence.PersistenceService/DeleteOne",
+        "/persistence.PersistenceService/ReplaceOne",
+        "/persistence.PersistenceService/InsertOne",
+        "/persistence.PersistenceService/Count",
+        "/persistence.PersistenceService/CreateConnection",
+        "/resource.ResourceService/GetAccounts",
+        "/admin.AdminService/RunCmd"
+      ]
+    }
+  ],
+  "actions": [
+    "/persistence.PersistenceService/Find",
+    "/persistence.PersistenceService/UpdateOne",
+    "/persistence.PersistenceService/FindOne",
+    "/persistence.PersistenceService/Delete",
+    "/persistence.PersistenceService/DeleteOne",
+    "/persistence.PersistenceService/ReplaceOne",
+    "/persistence.PersistenceService/InsertOne",
+    "/persistence.PersistenceService/Count",
+    "/file.FileService/FileUploadHandler",
+    "/file.FileService/ReadFile",
+    "/file.FileService/ReadDir",
+    "/file.FileService/ServeFileHandler",
+    "/ressource.RessourceService/CreateDirPermissions",
+    "/log.LogService/DeleteLog",
+    "/admin.AdminService/RunCmd"
+  ],
   "devDependencies": {
     "@types/jwt-decode": "^2.2.1",
     "css-loader": "^3.5.3",
