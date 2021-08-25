@@ -154,8 +154,38 @@ export class ServerGeneralSettings extends Settings {
             config.PortHttps = httpsPortSetting.getValue()
             saveMenuItem.style.display = ""
         }
-
         webSeverSettings.addSetting(httpsPortSetting)
+
+        let corsOriginsSettings_ = new ComplexSetting("Allowed Origins", "List of allowed Cross-origin")
+
+        let corsOriginsSettings = new StringListSetting("Allowed Origins", "List of allowed Cross-origin")
+        corsOriginsSettings.setValues(config.AllowedOrigins)
+        corsOriginsSettings.onchange = () => {
+            config.AllowedOrigins = corsOriginsSettings.getValues()
+            saveMenuItem.style.display = ""
+        }
+        corsOriginsSettings_.addSetting(corsOriginsSettings)
+        webSeverSettings.addSetting(corsOriginsSettings_)
+
+        let corsMethodsSettings_ = new ComplexSetting("Allowed Methods", "List of allowed Cross-method")
+        let corsMethodsSettings = new StringListSetting("Allowed Methods", "List of allowed Cross-method")
+        corsMethodsSettings.setValues(config.AllowedMethods)
+        corsMethodsSettings.onchange = () => {
+            config.AllowedMethods = corsMethodsSettings.getValues()
+            saveMenuItem.style.display = ""
+        }
+        corsMethodsSettings_.addSetting(corsMethodsSettings)
+        webSeverSettings.addSetting(corsMethodsSettings_)
+
+        let corsHeadersSettings_ = new ComplexSetting("Allowed Headers", "List of allowed Cross-header")
+        let corsHeadersSettings = new StringListSetting("Allowed Headers", "List of allowed Cross-header")
+        corsHeadersSettings.setValues(config.AllowedHeaders)
+        corsHeadersSettings.onchange = () => {
+            config.AllowedHeaders = corsHeadersSettings.getValues()
+            saveMenuItem.style.display = ""
+        }
+        corsHeadersSettings_.addSetting(corsHeadersSettings)
+        webSeverSettings.addSetting(corsHeadersSettings_)
 
         // Now the dns informations.
         let dnsSeverSettings = serverSettingsPage.appendSettings("Domain", "Domain releated informations");
