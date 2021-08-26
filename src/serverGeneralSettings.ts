@@ -5,6 +5,8 @@ import { Model } from "../../globular-mvc/Model";
 import { SaveConfigRequest } from "../../globular-mvc/node_modules/globular-web-client/admin/admin_pb"
 import * as resource from "../../globular-mvc/node_modules/globular-web-client/resource/resource_pb"
 import { Application } from "../../globular-mvc/Application";
+
+
 export class ServerGeneralSettings extends Settings {
     private config: any;
 
