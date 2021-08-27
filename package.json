@@ -14,6 +14,8 @@
     "admin",
     "template"
   ],
+  "alias":"console",
+  "icon":"images/globular_logo.png",
   "author": "Dave Courtois",
   "license": "ISC",
   "dependencies": {
