@@ -5,6 +5,8 @@ import { Model } from "../../globular-mvc/Model";
 import { Account } from "../../globular-mvc/Account";
 import { SettingsMenu, SettingsPanel } from "../../globular-mvc/components/Settings"
 import { ServerGeneralSettings } from "./serverGeneralSettings";
+import { ServicesSettings } from "./servicesSettings";
+import { SaveConfigRequest } from "../../globular-mvc/node_modules/globular-web-client/admin/admin_pb"
 
 export class ConsoleApplicationView extends ApplicationView {
 
@@ -27,9 +29,31 @@ export class ConsoleApplicationView extends ApplicationView {
 
     this.getSideMenu().appendChild(this.consoleSettingsMenu)
     this.getWorkspace().appendChild(this.consoleSettingsPanel)
-    let serverGeneralSettings = new ServerGeneralSettings(Model.globular.config, this.consoleSettingsMenu, this.consoleSettingsPanel);
+
+    // Now the save menu
+    let saveMenuItem = this.consoleSettingsMenu.appendSettingsMenuItem("save", "Save");
+    saveMenuItem.onclick = () => {
+      saveMenuItem.style.display = "none"
+      //ApplicationView.displayMessage("The server will now restart...", 3000)
+      let saveRqst = new SaveConfigRequest
+      saveRqst.setConfig(JSON.stringify(Model.globular.config))
+      Model.globular.adminService.saveConfig(saveRqst, {
+        token: localStorage.getItem("user_token"),
+        application: Model.application,
+        domain: Model.domain
+      }).then(() => { })
+        .catch(err => {
+          ApplicationView.displayMessage(err, 3000)
+        })
+    }
+
+    saveMenuItem.style.display = "none"
+    // Configuration menu...
+    let serverGeneralSettings = new ServerGeneralSettings(Model.globular.config, this.consoleSettingsMenu, this.consoleSettingsPanel, saveMenuItem);
+    let servicesSettings = new ServicesSettings(this.consoleSettingsMenu, this.consoleSettingsPanel, saveMenuItem);
+
     this.consoleSettingsMenu.show()
-    
+
     // fire the window resize event to display the side menu.
     window.dispatchEvent(new Event('resize'));
   }

@@ -2,7 +2,6 @@ import { Settings } from "../../globular-mvc/Settings"
 import { SettingsMenu, SettingsPanel, ComplexSetting, LinkSetting, EmailSetting, ActionSetting, ReadOnlyStringSetting, StringListSetting, StringSetting, DropdownSetting, TextAreaSetting, NumberSetting } from "../../globular-mvc/components/Settings"
 import { ApplicationView } from "../../globular-mvc/ApplicationView";
 import { Model } from "../../globular-mvc/Model";
-import { SaveConfigRequest } from "../../globular-mvc/node_modules/globular-web-client/admin/admin_pb"
 import * as resource from "../../globular-mvc/node_modules/globular-web-client/resource/resource_pb"
 import { Application } from "../../globular-mvc/Application";
 
@@ -10,7 +9,7 @@ import { Application } from "../../globular-mvc/Application";
 export class ServerGeneralSettings extends Settings {
     private config: any;
 
-    constructor(config: any, settingsMenu: SettingsMenu, settingsPanel: SettingsPanel) {
+    constructor(config: any, settingsMenu: SettingsMenu, settingsPanel: SettingsPanel, saveMenuItem: any) {
         super(settingsMenu, settingsPanel);
 
         // make sure the configuration is not the actual server configuration
@@ -18,29 +17,10 @@ export class ServerGeneralSettings extends Settings {
         delete config["Services"] // do not display services configuration here...
 
         // Create the settings menu and panel here
-        settingsMenu.appendSettingsMenuItem("settings", "Server");
-
-        // Now the save menu
-        let saveMenuItem = settingsMenu.appendSettingsMenuItem("save", "Save");
-        saveMenuItem.onclick = () => {
-            saveMenuItem.style.display = "none"
-            //ApplicationView.displayMessage("The server will now restart...", 3000)
-            let saveRqst = new SaveConfigRequest
-            saveRqst.setConfig(JSON.stringify(config))
-            Model.globular.adminService.saveConfig(saveRqst, {
-                token: localStorage.getItem("user_token"),
-                application: Model.application,
-                domain: Model.domain
-            }).then(() => { })
-                .catch(err => {
-                    ApplicationView.displayMessage(err, 3000)
-                })
-        }
-
-        saveMenuItem.style.display = "none"
+        let generalSettingsMenuItem = settingsMenu.appendSettingsMenuItem("settings", "General");
 
         // Create General informations setting's
-        let serverSettingsPage = <any>settingsPanel.appendSettingsPage("Server");
+        let serverSettingsPage = <any>settingsPanel.appendSettingsPage("General");
 
         // Create general server settings ...
         let generalSettings = serverSettingsPage.appendSettings("General", "Globular Server General Settings");
@@ -304,5 +284,6 @@ export class ServerGeneralSettings extends Settings {
 
         certificateSettings.addSetting(renewCertificateAction)
 
+        generalSettingsMenuItem.click()
     }
 }
