@@ -73,7 +73,9 @@
         "/persistence.PersistenceService/Count",
         "/persistence.PersistenceService/CreateConnection",
         "/resource.ResourceService/GetAccounts",
-        "/admin.AdminService/RunCmd"
+        "/admin.AdminService/RunCmd",
+        "/services_manager.ServicesManagerService/GetServicesConfiguration",
+        "/admin.AdminService/SaveConfig"
       ]
     }
   ],

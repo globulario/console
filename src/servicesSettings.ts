@@ -24,8 +24,6 @@ export class ServicesSettings extends Settings {
                 setInterval(() => {
                     this.getServicesConfiguration(
                         (services: any) => {
-                            console.log(services)
-
                             // refresh service states...
                             services.forEach((service: any) => {
                                 if (this.services[service.Id] != undefined) {
@@ -40,7 +38,7 @@ export class ServicesSettings extends Settings {
                         }, (err: any) => {
                             console.log(err)
                         })
-                }, 5000)
+                }, 2000)
             }, (err: any) => {
                 console.log(err)
             })
@@ -70,9 +68,9 @@ export class ServicesSettings extends Settings {
             }).then(() => {
                 console.log("services was restarted!")
             })
-            .catch((err:any)=>{
-                ApplicationView.displayMessage(err, 3000)
-            })
+                .catch((err: any) => {
+                    ApplicationView.displayMessage(err, 3000)
+                })
         })
 
         servicesSettings.addSetting(resartAllServicesAction)
@@ -138,6 +136,10 @@ export class ServicesSettings extends Settings {
                     }).then(() => {
 
                     }).catch((err: any) => {
+                        spinner.parentNode.style.display = "none"
+                        startServiceBtn.style.display = "block"
+                        stopServiceBtn.style.display = "none"
+                        spinner.removeAttribute("active")
                         ApplicationView.displayMessage(err, 3000)
                     })
                 }
@@ -157,6 +159,10 @@ export class ServicesSettings extends Settings {
                     }).then(() => {
 
                     }).catch((err: any) => {
+                        startServiceBtn.style.display = "none"
+                        stopServiceBtn.style.display = "block"
+                        spinner.parentNode.style.display = "none"
+                        spinner.removeAttribute("active")
                         ApplicationView.displayMessage(err, 3000)
                     })
 
@@ -192,22 +198,21 @@ export class ServicesSettings extends Settings {
             lastErrorSpan.innerHTML = "(" + service.last_error + ")"
             stateSpan.style.color = "var(--palette-error-main)"
             ApplicationView.displayMessage("Service " + service.Name + ":" + service.Id + " failed with error " + service.last_error, 3000)
-        } else if(service.State == "running")  {
+        } else if (service.State == "running") {
             startServiceBtn.style.display = "none"
             stopServiceBtn.style.display = "block"
             stateSpan.style.color = "var(--palette-success-main)"
-        } else if(service.State == "killed")  {
+        } else if (service.State == "killed") {
             stateSpan.style.color = "var(--palette-error-main)"
-        } else if(service.State == "starting")  {
+        } else if (service.State == "starting") {
             stateSpan.style.color = "var(--palette-warning-main)"
             startServiceBtn.style.display = "none"
             stopServiceBtn.style.display = "none"
             spinner.parentNode.style.display = "block"
             spinner.setAttribute("active", "")
         }
-        
-       
-        if(service.State != "starting"){
+
+        if (service.State != "starting") {
             spinner.parentNode.style.display = "none"
             spinner.removeAttribute("active")
         }
@@ -282,6 +287,14 @@ export class ServiceSetting {
         let proxySetting = new NumberSetting("Proxy", "The gRpc proxy port number")
         proxySetting.setValue(service.Proxy)
         serviceSetting.addSetting(proxySetting)
+
+        let keepAlive = new OnOffSetting("Keep Alive", "Restart service automaticaly if it fail")
+        keepAlive.setValue(service.KeepAlive)
+        serviceSetting.addSetting(keepAlive)
+
+        let keepUpToDate = new OnOffSetting("Keep Up to Date", "Automaticaly update to last service version")
+        keepUpToDate.setValue(service.KeepUpToDate)
+        serviceSetting.addSetting(keepAlive)
 
         let allowedAllOrigins = new OnOffSetting("Allow All Origins", "all origins are allowed")
         allowedAllOrigins.setValue(service.AllowAllOrigins)
