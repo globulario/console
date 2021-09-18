@@ -1,6 +1,6 @@
 {
   "name": "console",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "The globular admin console. It also contain unit test and documentation.",
   "main": "index.js",
   "scripts": {
