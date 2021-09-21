@@ -22,9 +22,6 @@ export class ConsoleApplicationView extends ApplicationView {
 
   onLogin(account: Account) {
     super.onLogin(account);
-    this.getWorkspace().innerHTML = "";
-    this.getSideMenu().appendChild(this.consoleSettingsMenu)
-    this.getWorkspace().appendChild(this.consoleSettingsPanel)
     
     // fire the window resize event to display the side menu.
     window.dispatchEvent(new Event('resize'));
