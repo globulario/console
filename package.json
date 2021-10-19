@@ -26,7 +26,8 @@
   "groups": [
     {
       "id": "globular_users",
-      "name": "globular_users"
+      "name": "globular_users",
+      "description":"Default group"
     }
   ],
   "roles": [
