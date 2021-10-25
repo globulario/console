@@ -27,11 +27,7 @@
     {
       "id": "globular_users",
       "name": "globular_users",
-<<<<<<< HEAD
-      "description":"default user group"
-=======
       "description":"Default group"
->>>>>>> b63df08fd8c4ad9a5a49b42ab7b8b90af8ef185f
     }
   ],
   "roles": [
