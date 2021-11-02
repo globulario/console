@@ -19,6 +19,10 @@
   "author": "Dave Courtois",
   "license": "ISC",
   "dependencies": {
+    "@editorjs/embed": "^2.4.6",
+    "@editorjs/header": "^2.6.1",
+    "@editorjs/image": "^2.6.1",
+    "@editorjs/paragraph": "^2.8.0",
     "@types/google.visualization": "0.0.56",
     "@types/materialize-css": "^1.0.8",
     "materialize-css": "^1.0.0"
@@ -114,6 +118,7 @@
     "/services_manager.ServicesManagerService/GetAllActions"
   ],
   "devDependencies": {
+    "@editorjs/delimiter": "^1.2.0",
     "@types/jwt-decode": "^2.2.1",
     "css-loader": "^3.5.3",
     "file-loader": "^6.0.0",
