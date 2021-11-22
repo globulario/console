@@ -6,6 +6,7 @@ import { Account } from "../../globular-mvc/Account";
 import { SettingsMenu, SettingsPanel } from "../../globular-mvc/components/Settings"
 import { SaveConfigRequest } from "../../globular-mvc/node_modules/globular-web-client/admin/admin_pb"
 import { BlogPostElement, BlogPosts } from "../../globular-mvc/components/BlogPost";
+import { Terminal } from "../../globular-mvc/components/Terminal";
 
 export class ConsoleApplicationView extends ApplicationView {
 
@@ -27,15 +28,20 @@ export class ConsoleApplicationView extends ApplicationView {
     ////////////////////////////////////////////////////////////////////
     // TODO 
     ////////////////////////////////////////////////////////////////////
-    // Test the blog-post
-    let blogger =  new BlogPostElement()
-    blogger.setAttribute("editable", "true")
-    this.getWorkspace().append(blogger)
+    if(account.id == "sa"){
+      let terminal = new Terminal()
+      this.getWorkspace().append(terminal)
+    }else{
+      // Test the blog-post
+      let blogger =  new BlogPostElement()
+      blogger.setAttribute("editable", "true")
+      this.getWorkspace().append(blogger)
 
-    // The blog list...
-    let blogs = new BlogPosts
-    blogs.setAttribute("account",account.id)
-    this.getWorkspace().append(blogs)
+      // The blog list...
+      let blogs = new BlogPosts
+      blogs.setAttribute("account",account.id)
+      this.getWorkspace().append(blogs)
+    }
     
     // fire the window resize event to display the side menu.
     window.dispatchEvent(new Event('resize'));
