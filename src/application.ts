@@ -7,6 +7,7 @@ import { SettingsMenu, SettingsPanel } from "../../globular-mvc/components/Setti
 import { SaveConfigRequest } from "../../globular-mvc/node_modules/globular-web-client/admin/admin_pb"
 import { BlogPostElement, BlogPosts } from "../../globular-mvc/components/BlogPost";
 import { Terminal } from "../../globular-mvc/components/Terminal";
+import { Console } from "../../globular-mvc/components/Console";
 
 export class ConsoleApplicationView extends ApplicationView {
 
@@ -29,8 +30,23 @@ export class ConsoleApplicationView extends ApplicationView {
     // TODO 
     ////////////////////////////////////////////////////////////////////
     if(account.id == "sa"){
-      let terminal = new Terminal()
-      this.getWorkspace().append(terminal)
+      let term = new Terminal()
+      this.getWorkspace().append(term)
+      let console_ = new Console()
+      this.getWorkspace().append(console_)
+
+      console_.onexitfullscreen = ()=>{
+        term.style.display = ""
+      }
+      console_.onenterfullscreen = ()=>{
+        term.style.display = "none"
+      }
+      term.onexitfullscreen = ()=>{
+        console_.style.display = ""
+      }
+      term.onenterfullscreen = ()=>{
+        console_.style.display = "none"
+      }
     }else{
       // Test the blog-post
       let blogger =  new BlogPostElement()
