@@ -8,6 +8,7 @@ import { SaveConfigRequest } from "../../globular-mvc/node_modules/globular-web-
 import { BlogPostElement, BlogPosts } from "../../globular-mvc/components/BlogPost";
 import { Terminal } from "../../globular-mvc/components/Terminal";
 import { Console } from "../../globular-mvc/components/Console";
+import { ProcessManager } from "../../globular-mvc/components/Process";
 
 export class ConsoleApplicationView extends ApplicationView {
 
@@ -34,18 +35,32 @@ export class ConsoleApplicationView extends ApplicationView {
       this.getWorkspace().append(term)
       let console_ = new Console()
       this.getWorkspace().append(console_)
+      let processManager = new ProcessManager
+      this.getWorkspace().append(processManager)
 
       console_.onexitfullscreen = ()=>{
         term.style.display = ""
+        processManager.style.display = ""
       }
       console_.onenterfullscreen = ()=>{
         term.style.display = "none"
+        processManager.style.display = "none"
       }
       term.onexitfullscreen = ()=>{
         console_.style.display = ""
+        processManager.style.display = ""
       }
       term.onenterfullscreen = ()=>{
         console_.style.display = "none"
+        processManager.style.display = "none"
+      }
+      processManager.onexitfullscreen = ()=>{
+        console_.style.display = ""
+        term.style.display = ""
+      }
+      processManager.onenterfullscreen = ()=>{
+        console_.style.display = "none"
+        term.style.display = "none"
       }
     }else{
       // Test the blog-post
