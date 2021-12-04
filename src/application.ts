@@ -8,7 +8,7 @@ import { SaveConfigRequest } from "../../globular-mvc/node_modules/globular-web-
 import { BlogPostElement, BlogPosts } from "../../globular-mvc/components/BlogPost";
 import { Terminal } from "../../globular-mvc/components/Terminal";
 import { Console } from "../../globular-mvc/components/Console";
-import { ProcessManager } from "../../globular-mvc/components/Process";
+import { SystemMonitor } from "../../globular-mvc/components/SystemMonitor";
 
 export class ConsoleApplicationView extends ApplicationView {
 
@@ -35,30 +35,30 @@ export class ConsoleApplicationView extends ApplicationView {
       this.getWorkspace().append(term)
       let console_ = new Console()
       this.getWorkspace().append(console_)
-      let processManager = new ProcessManager
-      this.getWorkspace().append(processManager)
+      let systemMonitor = new SystemMonitor
+      this.getWorkspace().append(systemMonitor)
 
       console_.onexitfullscreen = ()=>{
         term.style.display = ""
-        processManager.style.display = ""
+        systemMonitor.style.display = ""
       }
       console_.onenterfullscreen = ()=>{
         term.style.display = "none"
-        processManager.style.display = "none"
+        systemMonitor.style.display = "none"
       }
       term.onexitfullscreen = ()=>{
         console_.style.display = ""
-        processManager.style.display = ""
+        systemMonitor.style.display = ""
       }
       term.onenterfullscreen = ()=>{
         console_.style.display = "none"
-        processManager.style.display = "none"
+        systemMonitor.style.display = "none"
       }
-      processManager.onexitfullscreen = ()=>{
+      systemMonitor.onexitfullscreen = ()=>{
         console_.style.display = ""
         term.style.display = ""
       }
-      processManager.onenterfullscreen = ()=>{
+      systemMonitor.onenterfullscreen = ()=>{
         console_.style.display = "none"
         term.style.display = "none"
       }
