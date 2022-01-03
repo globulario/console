@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production && cp -r css dist && cp -r images dist && cp index.html dist && cp config.json dist && cp test.html dist && Globular deploy -u=sa -p=adminadmin -name=console -a=dave-system-product-name.globular.io -path=dist"
+    "build": "webpack --mode production && cp -r css dist && cp -r images dist && cp index.html dist && cp config.json dist && cp test.html dist && Globular deploy -u=sa -p=adminadmin -name=console -a=globule-nuc.globular.cloud:10101 -path=dist"
   },
   "keywords": [
     "globular",
