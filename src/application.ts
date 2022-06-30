@@ -63,14 +63,16 @@ export class ConsoleApplicationView extends ApplicationView {
         term.style.display = "none"
       }
     }else{
-      // Test the blog-post
-      let blogger =  new BlogPostElement()
-      blogger.setAttribute("editable", "true")
-      this.getWorkspace().append(blogger)
 
       // The blog list...
       let blogs = new BlogPosts
       blogs.setAttribute("account",account.id)
+      ApplicationView.wait("Retreive Blogs </br>Please wait...")
+      blogs.style.display = "none";
+      blogs.onloaded = ()=>{
+        blogs.style.display = "";
+        ApplicationView.resume()
+      }
       this.getWorkspace().append(blogs)
     }
     
