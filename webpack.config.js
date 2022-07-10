@@ -1,6 +1,9 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-
+/* To use as production code to minimize bundle.js file.
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+plugins: [new MiniCssExtractPlugin(), new UglifyJsPlugin()],
+*/
 module.exports = {
   entry: './index.ts',
   devtool: 'inline-source-map',
@@ -26,5 +29,9 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    sourceMapFilename: "bundle.map",
+    publicPath: '/bundles/',
+    libraryTarget: 'var',
+    library: 'globular_1_0_0'
   },
 };
