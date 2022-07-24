@@ -1,6 +1,6 @@
 import "./css/main.css";
 import { ConsoleApplication, ConsoleApplicationView } from "./src/application";
-
+//import {hello}
 /**
  * The main entry point of an applicaition.
  */
@@ -27,6 +27,5 @@ function main() {
  * The main function will be call a the end of document initialisation.
  */
 document.addEventListener("DOMContentLoaded", function (event) {
-
   main();
 });

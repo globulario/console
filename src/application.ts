@@ -65,7 +65,7 @@ export class ConsoleApplicationView extends ApplicationView {
     }else{
 
       // The blog list...
-      let blogs = new BlogPosts
+      /*let blogs = new BlogPosts
       blogs.setAttribute("account",account.id)
       ApplicationView.wait("Retreive Blogs </br>Please wait...")
       blogs.style.display = "none";
@@ -73,7 +73,7 @@ export class ConsoleApplicationView extends ApplicationView {
         blogs.style.display = "";
         ApplicationView.resume()
       }
-      this.getWorkspace().append(blogs)
+      this.getWorkspace().append(blogs)*/
     }
     
     // fire the window resize event to display the side menu.
