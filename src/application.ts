@@ -31,6 +31,8 @@ export class ConsoleApplicationView extends ApplicationView {
     // TODO 
     ////////////////////////////////////////////////////////////////////
     if(account.id == "sa"){
+      /*
+      TODO move it to the configuration...
       let term = new Terminal()
       this.getWorkspace().append(term)
       let console_ = new Console()
@@ -61,7 +63,7 @@ export class ConsoleApplicationView extends ApplicationView {
       systemMonitor.onenterfullscreen = ()=>{
         console_.style.display = "none"
         term.style.display = "none"
-      }
+      }*/
     }else{
 
       // The blog list...
