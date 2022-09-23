@@ -5,8 +5,9 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 plugins: [new MiniCssExtractPlugin(), new UglifyJsPlugin()],
 */
 module.exports = {
+  mode: "development",
   entry: './index.ts',
-  devtool: 'inline-source-map',
+  devtool: 'eval-cheap-module-source-map',
   plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
