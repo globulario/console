@@ -80,6 +80,7 @@ export class ConsoleApplicationView extends ApplicationView {
     
     // fire the window resize event to display the side menu.
     window.dispatchEvent(new Event('resize'));
+    this.getWorkspace()
   }
 
   onLogout() {
