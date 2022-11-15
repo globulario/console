@@ -1,0 +1,28 @@
+#EXTM3U
+
+#PLAYLIST: D:\globulario\console\audio\ringtone
+
+#EXTINF:29,2po2_rap, tvg-id="109b1869-4409-3d03-8b47-feda922aa8d3" tvg-url=""
+https://globule-ryzen.globular.cloud:10202D:%5Cglobulario%5Cconsole%5Caudio%5Cringtone%5C2po2_rap.mp3
+
+#EXTINF:30,birds, tvg-id="224e888d-18cc-30a1-bd45-4f25b383dad9" tvg-url=""
+https://globule-ryzen.globular.cloud:10202D:%5Cglobulario%5Cconsole%5Caudio%5Cringtone%5Cbirds.mp3
+
+#EXTINF:11,little_do_you_know, tvg-id="5166af74-5ea1-3cfd-83e5-8817c4045387" tvg-url=""
+https://globule-ryzen.globular.cloud:10202D:%5Cglobulario%5Cconsole%5Caudio%5Cringtone%5Clittle_do_you_know.mp3
+
+#EXTINF:30,*FREE* Old School Boom Bap Type Beat x Old School Hip Hop Instrumental - "Uno", tvg-id="72ed96e1-24e1-3fa5-b0be-53fb3c575038" tvg-url=""
+https://globule-ryzen.globular.cloud:10202D:%5Cglobulario%5Cconsole%5Caudio%5Cringtone%5Cold_school_beat_uno.mp3
+
+#EXTINF:30,prolly_my_spooky_beat, tvg-id="69ea91ce-c624-3fff-9f6f-6a70adc30ab7" tvg-url=""
+https://globule-ryzen.globular.cloud:10202D:%5Cglobulario%5Cconsole%5Caudio%5Cringtone%5Cprolly_my_spooky_beat.mp3
+
+#EXTINF:20,tiktok_version_song, tvg-id="9348022a-9e5d-3ccd-bf2c-fb6614446686" tvg-url=""
+https://globule-ryzen.globular.cloud:10202D:%5Cglobulario%5Cconsole%5Caudio%5Cringtone%5Ctiktok_version_song.mp3
+
+#EXTINF:29,trap_sax_beat, tvg-id="e633cfa1-dd55-3381-a930-4032e339c4a1" tvg-url=""
+https://globule-ryzen.globular.cloud:10202D:%5Cglobulario%5Cconsole%5Caudio%5Cringtone%5Ctrap_sax_beat.mp3
+
+#EXTINF:29,zehra, tvg-id="e16793ce-5007-3ed2-9709-f52e07ca8640" tvg-url=""
+https://globule-ryzen.globular.cloud:10202D:%5Cglobulario%5Cconsole%5Caudio%5Cringtone%5Czehra.mp3
+
