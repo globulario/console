@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production && cp -r css dist && cp -r images dist && cp -r audio dist && cp index.html dist && cp config.json dist && cp test.html dist && /mnt/data_ssd/globulario/Globular/Globular deploy  -u=sa -p=adminadmin  -name=console -a=globule-ryzen.globular.cloud:10202 -path=dist"
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --mode production && cp -r css dist && cp -r images dist && cp -r audio dist && cp index.html dist && cp config.json dist && cp test.html dist && /media/dave/data/globulario/Globular/Globular deploy -u=sa -p=adminadmin -name=console -a=globule-ryzen:8080 -path=dist"
   },
   "keywords": [
     "globular",
@@ -72,6 +72,7 @@
         "/file.FileService/Rename",
         "/file.FileService/SaveFile",
         "/file.FileService/WriteExcelFile",
+        "/file.FileService/UploadVideo",
         "/persistence.PersistenceService/Count",
         "/persistence.PersistenceService/CreateConnection",
         "/persistence.PersistenceService/Delete",
@@ -107,6 +108,8 @@
     "/file.FileService/ReadFile",
     "/file.FileService/ReadDir",
     "/file.FileService/ServeFileHandler",
+    "/file.FileService/GetFileInfo",
+    "/file.FileService/GetThumbnails",
     "/ressource.RessourceService/CreateDirPermissions",
     "/log.LogService/DeleteLog",
     "/admin.AdminService/RunCmd",
