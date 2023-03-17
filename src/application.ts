@@ -12,71 +12,12 @@ import { SystemMonitor } from "../../globular-mvc/components/SystemMonitor";
 
 export class ConsoleApplicationView extends ApplicationView {
 
-  /** The settings Menu */
-  protected consoleSettingsMenu: SettingsMenu;
-
-  /** The settings Panel */
-  protected consoleSettingsPanel: SettingsPanel;
-
   constructor() {
     super();
-    this.consoleSettingsMenu = new SettingsMenu();
-    this.consoleSettingsPanel = new SettingsPanel();
   }
 
   onLogin(account: Account) {
     super.onLogin(account);
-    
-    ////////////////////////////////////////////////////////////////////
-    // TODO 
-    ////////////////////////////////////////////////////////////////////
-    if(account.id == "sa"){
-      /*
-      TODO move it to the configuration...
-      let term = new Terminal()
-      this.getWorkspace().append(term)
-      let console_ = new Console()
-      this.getWorkspace().append(console_)
-      let systemMonitor = new SystemMonitor
-      this.getWorkspace().append(systemMonitor)
-
-      console_.onexitfullscreen = ()=>{
-        term.style.display = ""
-        systemMonitor.style.display = ""
-      }
-      console_.onenterfullscreen = ()=>{
-        term.style.display = "none"
-        systemMonitor.style.display = "none"
-      }
-      term.onexitfullscreen = ()=>{
-        console_.style.display = ""
-        systemMonitor.style.display = ""
-      }
-      term.onenterfullscreen = ()=>{
-        console_.style.display = "none"
-        systemMonitor.style.display = "none"
-      }
-      systemMonitor.onexitfullscreen = ()=>{
-        console_.style.display = ""
-        term.style.display = ""
-      }
-      systemMonitor.onenterfullscreen = ()=>{
-        console_.style.display = "none"
-        term.style.display = "none"
-      }*/
-    }else{
-
-      // The blog list...
-      /*let blogs = new BlogPosts
-      blogs.setAttribute("account",account.id)
-      ApplicationView.wait("Retreive Blogs </br>Please wait...")
-      blogs.style.display = "none";
-      blogs.onloaded = ()=>{
-        blogs.style.display = "";
-        ApplicationView.resume()
-      }
-      this.getWorkspace().append(blogs)*/
-    }
     
     // fire the window resize event to display the side menu.
     window.dispatchEvent(new Event('resize'));
@@ -86,8 +27,6 @@ export class ConsoleApplicationView extends ApplicationView {
   onLogout() {
     super.onLogout();
     this.getWorkspace().innerHTML = "";
-    this.consoleSettingsMenu.clear(); // clear various stuff...
-    this.consoleSettingsPanel.clear();
   }
 }
 
