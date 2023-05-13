@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --mode production && cp -r css dist && cp -r images dist && cp -r audio dist && cp index.html dist && cp config.json dist &&  /home/dave/Documents/globulario/Globular/Globular deploy -u=sa -p=adminadmin -name=console -a=globule-ryzen.globular.cloud -path=dist"
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --mode production && cp -r css dist && cp -r images dist && cp -r audio dist && cp index.html dist && cp config.json dist &&  /home/dave/Documents/globulario/Globular/Globular deploy -u=sa -p=adminadmin -name=console -a=globule-dell.globular.cloud -path=dist"
   },
   "keywords": [
     "globular",
@@ -36,7 +36,8 @@
       "actions": [
         "/admin.AdminService/RunCmd",
         "/admin.AdminService/KillProcess",
-        "/admin.AdminService/SaveConfig",
+        "/admin.AuthenticationService/SaveConfig",
+        "/authentication.AdminService/SetPassword",
         "/blog.BlogService/GetBlogPostsByAuthors",
         "/blog.BlogService/SaveBlogPost",
         "/blog.BlogService/CreateBlogPost",
@@ -103,7 +104,16 @@
         "/rbac.RbacService/SetResourcePermission",
         "/rbac.RbacService/SetResourcePermissions",
         "/rbac.RbacService/GetResourcePermissionsByResourceType",
-        "/resource.ResourceService/GetAccounts"
+        "/resource.ResourceService/GetAccounts",
+        "/resource.ResourceService/SetAccountPassword",
+        "/title.TitleService/DeleteVideo",
+        "/title.TitleService/CreateVideo",
+        "/title.TitleService/DeleteAudio",
+        "/title.TitleService/CreateAudio",
+        "/title.TitleService/DeleteTitle",
+        "/title.TitleService/CreateTitle",
+        "/title.TitleService/AssociateFileWithTitle",
+        "/title.TitleService/DissociateFileWithTitle"
       ]
     }
   ],
