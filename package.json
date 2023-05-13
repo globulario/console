@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --mode production && cp -r css dist && cp -r images dist && cp -r audio dist && cp index.html dist && cp config.json dist &&  /home/dave/Documents/globulario/Globular/Globular deploy -u=sa -p=adminadmin -name=console -a=globule-dell.globular.cloud -path=dist"
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --mode production && cp -r css dist && cp -r images dist && cp -r audio dist && cp index.html dist && cp config.json dist &&  /home/dave/Documents/globulario/Globular/Globular deploy -u=sa -p=adminadmin -name=console -o=globulario@globule-dell.globular.cloud -a=globule-dell.globular.cloud -path=dist"
   },
   "keywords": [
     "globular",
