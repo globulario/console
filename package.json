@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "set NODE_OPTIONS=--openssl-legacy-provider && webpack --mode production && cp -r css dist && cp -r images dist && cp -r audio dist && cp index.html dist && cp config.json dist && cp test.html dist && C:/Users/davec/Documents/globulario/Globular/Globular.exe deploy  -u=sa  -p=adminadmin -name=console -a=desktop-ra2irav.plclogs.com -path=dist"
-  },
+ },
   "keywords": [
     "globular",
     "documentation",
@@ -36,7 +36,18 @@
       "actions": [
         "/admin.AdminService/RunCmd",
         "/admin.AdminService/KillProcess",
-        "/admin.AdminService/SaveConfig",
+        "/admin.AuthenticationService/SaveConfig",
+        "/authentication.AdminService/SetPassword",
+        "/blog.BlogService/GetBlogPostsByAuthors",
+        "/blog.BlogService/SaveBlogPost",
+        "/blog.BlogService/CreateBlogPost",
+        "/blog.BlogService/GetBlogPosts",
+        "/blog.BlogService/SearchBlogPosts",
+        "/blog.BlogService/DeleteBlogPost",
+        "/blog.BlogService/AddEmoji",
+        "/blog.BlogService/RemoveEmoji",
+        "/blog.BlogService/AddComment",
+        "/blog.BlogService/RemoveComment",
         "/conversation.ConversationService/AcceptInvitation",
         "/conversation.ConversationService/Connect",
         "/conversation.ConversationService/CreateConversation",
@@ -71,8 +82,10 @@
         "/file.FileService/ReadFile",
         "/file.FileService/Rename",
         "/file.FileService/SaveFile",
+        "/file.FileService/CreateLnk",
         "/file.FileService/WriteExcelFile",
         "/file.FileService/UploadVideo",
+        "/file.FileService/UploadFile",
         "/persistence.PersistenceService/Count",
         "/persistence.PersistenceService/CreateConnection",
         "/persistence.PersistenceService/Delete",
@@ -90,7 +103,17 @@
         "/rbac.RbacService/SetActionResourcesPermissions",
         "/rbac.RbacService/SetResourcePermission",
         "/rbac.RbacService/SetResourcePermissions",
-        "/resource.ResourceService/GetAccounts"
+        "/rbac.RbacService/GetResourcePermissionsByResourceType",
+        "/resource.ResourceService/GetAccounts",
+        "/resource.ResourceService/SetAccountPassword",
+        "/title.TitleService/DeleteVideo",
+        "/title.TitleService/CreateVideo",
+        "/title.TitleService/DeleteAudio",
+        "/title.TitleService/CreateAudio",
+        "/title.TitleService/DeleteTitle",
+        "/title.TitleService/CreateTitle",
+        "/title.TitleService/AssociateFileWithTitle",
+        "/title.TitleService/DissociateFileWithTitle"
       ]
     }
   ],
