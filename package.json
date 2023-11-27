@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --mode production && cp -r css dist && cp -r images dist && cp -r audio dist && cp index.html dist && cp config.json dist && cp test.html dist && /media/dave/data/globulario/Globular/Globular deploy -u=sa -p=adminadmin -name=console -a=globule-ryzen:8080 -path=dist"
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && webpack --mode production && cp -r css dist && cp -r images dist && cp -r audio dist && cp index.html dist && cp config.json dist && cp test.html dist && C:/Users/davec/Documents/globulario/Globular/Globular.exe deploy  -u=sa  -p=adminadmin -name=console -a=desktop-ra2irav.plclogs.com -path=dist"
   },
   "keywords": [
     "globular",
