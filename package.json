@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && webpack --mode production && cp -r css dist && cp -r images dist && cp -r audio dist && cp index.html dist && cp config.json dist && cp test.html dist && C:/Users/davec/Documents/globulario/Globular/Globular.exe deploy  -u=sa  -p=adminadmin -name=console -a=desktop-ra2irav.plclogs.com -path=dist"
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && webpack --mode production && cp -r css dist && cp -r images dist && cp -r audio dist && cp index.html dist && cp config.json dist && ../Globular/Globular deploy  -u=sa@globular.cloud  -p=adminadmin -name=console -a=globule-ryzen.globular.cloud -path=dist"
  },
   "keywords": [
     "globular",
@@ -26,13 +26,16 @@
     {
       "id": "globular_users",
       "name": "globular_users",
-      "description": "Default group"
+      "description": "Default group",
+      "domain":"globular.cloud"
     }
   ],
   "roles": [
     {
       "id": "globular_user",
       "name": "globular_user",
+      "domain":"globular.cloud",
+      "description": "Default role",
       "actions": [
         "/admin.AdminService/RunCmd",
         "/admin.AdminService/KillProcess",
@@ -84,8 +87,8 @@
         "/file.FileService/SaveFile",
         "/file.FileService/CreateLnk",
         "/file.FileService/WriteExcelFile",
-        "/file.FileService/UploadVideo",
         "/file.FileService/UploadFile",
+        "/media.MediaService/UploadVideo",
         "/persistence.PersistenceService/Count",
         "/persistence.PersistenceService/CreateConnection",
         "/persistence.PersistenceService/Delete",
