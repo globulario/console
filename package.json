@@ -26,16 +26,16 @@
     {
       "id": "globular_users",
       "name": "globular_users",
-      "domain":"localhost",
-      "description": "Default group"
+      "description": "Default group",
+      "domain":"globular.cloud"
     }
   ],
   "roles": [
     {
       "id": "globular_user",
       "name": "globular_user",
-      "domain":"localhost",
-      "description":"this is a role",
+      "domain":"globular.cloud",
+      "description": "Default role",
       "actions": [
         "/admin.AdminService/RunCmd",
         "/admin.AdminService/KillProcess",
@@ -87,8 +87,8 @@
         "/file.FileService/SaveFile",
         "/file.FileService/CreateLnk",
         "/file.FileService/WriteExcelFile",
-        "/file.FileService/UploadVideo",
         "/file.FileService/UploadFile",
+        "/media.MediaService/UploadVideo",
         "/persistence.PersistenceService/Count",
         "/persistence.PersistenceService/CreateConnection",
         "/persistence.PersistenceService/Delete",
